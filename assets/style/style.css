@@ -9,6 +9,10 @@ body {
     justify-content: space-between;
 }
 
+#navbar__logo {
+    width: 11rem;
+}
+
 .logo {
     width: 9rem;
 }
@@ -20,7 +24,6 @@ body {
 
 #navbar__links {
     display: flex;
-    gap: 3rem;
 }
 
 #solidbar {
@@ -29,20 +32,21 @@ body {
 }
 
 .nav-link {
-    padding: 10px;
-    font-size: 1.1rem;
+    white-space: nowrap;
+    padding: 7px;
+    font-size: 0.8rem;
     text-decoration: none;
     color: white;
+    transition: .3s;
 }
 
 .nav-link:hover {
     color: #5A19A0;
-    transition: .5s;
     border-bottom: solid 3px #5A19A0;
+    transition: .3s;
 }
 
-#carouselExampleRide {
-    padding: 30px;
+#carouselExampleIndicators {
+    padding: 10px;
     margin: 0 auto;
-    width: 80%;
 }
