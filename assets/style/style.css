@@ -47,6 +47,35 @@ body {
 }
 
 #carouselExampleIndicators {
+    width: 80%;
     padding: 10px;
     margin: 0 auto;
+}
+
+.categorias {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 2rem;
+}
+
+.categorias h3 {
+    color: white;
+}
+
+.imgs {
+    display: flex;
+    column-gap: 1rem;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.categoria__img {
+    width: 9.5rem;
+    transition: .2s;
+}
+
+.categoria__img:hover {
+    transform: scale(1.1);
+    transition: .2s;
 }
