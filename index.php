@@ -52,13 +52,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quasar - Login</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <div id="container__content">
         <div id="container__login">
-            <form action="" method="POST">
+            <form class="form" action="" method="POST">
                 <div id="container__h2">
                     <h2 class="login">LOGIN</h2><br>
                 </div>
@@ -74,20 +77,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div id="alts">
-                    <a href="cadastro.php" class="esquecer">Cadastre-se</a>
+                    <a href="cadastro.php" class="cadastro">Cadastre-se</a>
                 </div>
 
                 <div id="Buttonitr">
                     <input class="Button-Login" type="submit" value="Login"></input>
                 </div>
 
-                
+
                 <img src="assets/img/logo.png" class="logo">
             </form>
         </div>
 
         <div id="background_image">
-            <img src="assets/img/login_background.gif" alt="">
+            <h1>Um mundo de oportunidades</h1>
+            <a href="home.php">Conheça nosso serviço.</a>
         </div>
     </div>
 
