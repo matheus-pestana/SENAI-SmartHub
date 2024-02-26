@@ -1,0 +1,48 @@
+body {
+    background-color: black;
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+}
+
+#navbar {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    transform: translateY(-10%);
+}
+
+#barra_roxa {
+    width: 100%;
+    border-bottom: 1px solid #5A19A0;
+    position: absolute;
+    transform: translateY(-1000%);
+}
+
+.logo {
+    width: 10%;
+}
+
+#navbar__itens {
+    display: flex;
+}
+
+#navbar__itens a {
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 10px;
+    padding: 20px;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+
+#navbar__itens a:hover {
+    color: #5A19A0;
+    border-bottom: 3px solid #5A19A0;
+    transition: 0.3s;
+}

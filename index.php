@@ -51,7 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quasar - Login</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/icon.png">
+    <link rel="stylesheet" href="assets/css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -84,13 +85,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input class="Button-Login" type="submit" value="Login"></input>
                 </div>
 
-
                 <img src="assets/img/logo.png" class="logo">
             </form>
         </div>
 
         <div id="background_image">
             <h1>Um mundo de oportunidades</h1>
+            <h2>Encontre o melhor método de estudos para você. Venha interagir no divertido mundo da educação, conosco!</h2>
             <a href="home.php">Conheça nosso serviço.</a>
         </div>
     </div>
