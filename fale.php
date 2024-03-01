@@ -4,18 +4,18 @@ include 'conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (isset($_POST['reclamacao']) && isset($_POST['sugestao']) && isset($_POST['avaliacao'])) {
+    if (isset($_POST['email']) && isset($_POST['categoria']) && isset($_POST['texto'])) {
 
         $email = $_POST['email'];
-        $reclamacao = $_POST['reclamacao'];
-        $sugestao = $_POST['sugestao'];
-        $avaliacao = $_POST['avaliacao'];
+        $categoria = $_POST['categoria'];
+        $texto = $_POST['texto'];
 
-        if (!empty($email) && !empty($reclamacao) && !empty($sugestao) && !empty($avaliacao)) {
-            $sql = "INSERT INTO fale_conosco (usuario_email, reclamacao, sugestao, avaliacao) VALUES ('$email', '$reclamacao', '$sugestao', '$avaliacao')";
+        if (!empty($email) && !empty($categoria) && !empty($texto)) {
+            $sql = "INSERT INTO fale_conosco (usuario_email, categoria, texto) VALUES ('$email', '$categoria', '$texto')";
+            $_SESSION['submitted'] = true;
 
             if ($conn->query($sql) === TRUE) {
-                header("Location: confirmacao.php?success=true");
+                header('location: confirmacao.php');
             } else {
                 echo "Erro ao inserir dados: " . $conn->error;
             }
@@ -23,11 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Por favor, preencha todos os campos!";
         }
     } else {
-        echo "Por favor, preencha todos os campos!";
+        echo "";
     }
 
     $conn->close();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -51,22 +52,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div id="container__email">
                 <h3 class="E-mail">E-mail</h3>
-                <input type="text" name="email" placeholder="Reclamação" required>
+                <input type="email" name="email" placeholder="e-mail" required>
+            </div>
+
+            <div id="container__senha">
+                <h3 class="Password">Selecione a opção que mais se adequa a sua solicitação:</h3>
+                <select name="categoria" id="" required>
+                    <option value="" data-default disabled selected></option>
+                    <option value="1">Sugestão</option>
+                    <option value="2">Avaliação</option>
+                    <option value="3">Reclamação</option>
+                </select>
             </div>
 
             <div id="container__email">
-                <h3 class="E-mail">Reclamação</h3>
-                <input type="text" name="reclamacao" placeholder="Reclamação">
-            </div>
-
-            <div id="container__senha">
-                <h3 class="Password">Sugestão</h3>
-                <input type="text" name="sugestao" placeholder="Sugestão">
-            </div>
-
-            <div id="container__senha">
-                <h3 class="Password">Avaliação</h3>
-                <input type="text" name="avaliacao" placeholder="Avaliação">
+                <h3 class="E-mail">Digite aqui a sua solicitação:</h3>
+                <input type="text" name="texto" placeholder="Digite aqui" required>
             </div>
 
             <div id="Buttonitr">
@@ -80,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_SESSION['adm_id']) && $_SESSION['adm_id'] == true) {
         echo '<a href="solicitacoes.php">Ver solicitações</a>';
     }
+
     ?>
 
     </form>
