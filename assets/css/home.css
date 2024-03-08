@@ -29,6 +29,7 @@ body {
 
 .logo {
     width: 140px;
+    cursor: url("../img/cursor.png"), auto;
 }
 
 #navbar__itens {
@@ -48,6 +49,7 @@ body {
     color: #5A19A0;
     border-bottom: 3px solid #5A19A0;
     transition: 0.3s;
+    cursor: url("../img/cursor.png"), auto;
 }
 
 #apresentacao {

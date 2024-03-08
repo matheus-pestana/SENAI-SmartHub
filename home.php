@@ -21,6 +21,24 @@ include 'conexao.php';
     <nav id="navbar">
         <a href="#"><img class="logo" src="assets/img/logo.png" alt=""></a>
         <div id="navbar__itens">
+            <?php
+            
+            include 'conexao.php';
+
+            if (isset($_SESSION["adm_id"])) {
+                $adm_id = $_SESSION["adm_id"];
+
+                $query = "SELECT usuario_nome FROM usuarios WHERE usuario_id = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("i", $adm_id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $user = $result->fetch_assoc();
+
+                echo "<a>Bem-vindo {$user['usuario_nome']}!</a>";
+            }
+            
+            ?>
             <a href="#servicos">Serviços</a>
             <a href="#sobre">Quem Somos</a>
             <a href="#contato">Contato</a>

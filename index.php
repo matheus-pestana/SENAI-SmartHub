@@ -61,39 +61,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
     <div id="container__content">
+
+        <div id="login_background">
+            <img class="backgroundimage" src="assets/img/login_background.png">
+        </div>
+
         <div id="container__login">
             <form class="form" action="" method="POST">
-                <div id="container__h2">
-                    <h2 class="login">LOGIN</h2><br>
-                </div>
-
-                <div id="container__email">
-                    <h3 class="E-mail">E-mail</h3>
-                    <input type="email" class="Hr2" id="email" name="email" placeholder="Email" required>
-                </div>
-
-                <div id="container__senha">
-                    <h3 class="Password">Senha</h3>
-                    <input type="password" class="Hr3" id="senha" name="senha" placeholder="Senha" required>
-                </div>
+                    <h1 class="login_title">Faça login em sua conta</h1>
+                    <p class="login_text">Acesse sua conta informando seu e-mail e senha</p>
 
                 <div id="alts">
-                    <a href="cadastro.php" class="cadastro">Cadastre-se</a>
+                    <a href="index.php" class="index">Login</a>
+                    <a href="cadastro.php" class="cadastro">Cadastro</a>
+                </div>
+
+                <div id="inputs">
+                    <input type="email" class="email_input" id="email" name="email" placeholder="Email" required>
+                    <input type="password" class="senha_input" id="senha" name="senha" placeholder="Senha" required>
                 </div>
 
                 <div id="Buttonitr">
                     <input class="Button-Login" type="submit" value="Login"></input>
+                    <a href="redefinir.php">Esqueceu a senha?</a>
                 </div>
 
-                <img src="assets/img/logo.png" class="logo">
             </form>
         </div>
 
-        <div id="background_image">
-            <h1>Um mundo de oportunidades</h1>
-            <h2>Encontre o melhor método de estudos para você. Venha interagir no divertido mundo da educação, conosco!</h2>
-            <a href="home.php">Conheça nosso serviço.</a>
-        </div>
     </div>
 
     <footer>
