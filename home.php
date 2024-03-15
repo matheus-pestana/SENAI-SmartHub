@@ -48,7 +48,7 @@ include 'conexao.php';
 
     <main>
         <div id="apresentacao">
-            <div id="textos">
+            <div class="textos">
                 <p class="apresentacao__title">Um mundo de oportunidades</p>
                 <h1 class="apresentacao__texto">
                     Conectando Mentes; Transmitindo Conhecimento
@@ -59,7 +59,7 @@ include 'conexao.php';
         </div>
 
         <div id="servicos">
-            <div id="textos">
+            <div class="textos">
                 <p class="servicos__title">Serviços</p>
                 <h1 class="servicos__texto">
                     De que maneira podemos ser úteis?
@@ -70,7 +70,7 @@ include 'conexao.php';
         </div>
 
         <div id="sobre">
-            <div id="textos">
+            <div class="textos">
                 <p class="sobre__title">Quem Somos</p>
                 <h1 class="sobre__texto">
                     Conheça nossa empresa e desenvolvedores
