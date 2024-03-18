@@ -14,7 +14,7 @@ if ($result->num_rows > 0) {
     echo "<h2>Solicitações Armazenadas</h2>";
     echo "<table border='1'><tr><th>E-mail</th><th>Reclamação</th><th>Sugestão</th><th>Avaliação</th></tr>";
     while ($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["usuario_email"] . "</td><td>" . $row["reclamacao"] . "</td><td>" . $row["sugestao"] . "</td><td>" . $row["avaliacao"] . "</td></tr>";
+        echo "<tr><td>" . $row["usuario_email"] . "</td><td>" . $row["categoria"] . "</td><td>" . $row["texto"] . "</td><td>" . "</td></tr>";
     }
     echo "</table>";
 } else {
@@ -22,4 +22,5 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
+
 ?>

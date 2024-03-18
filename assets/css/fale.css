@@ -1,24 +1,94 @@
 body {
-    background-color: black;
     font-family: "Lato", sans-serif;
     font-weight: 100;
     font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+#background__image {
+    height: 100vh;
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 main {
+    background-color: black;
+    width: 40vw;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+    position: fixed;
+    top: 5%;
+    left: 30%;
+    padding: 10px;
 }
 
-h1, h3, p {
+#container__email, #container__opcao, #container__texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h1 {
+    margin: 20px;
+    text-align: left;
     color: white;
 }
 
+span {
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+    color: white;
+}
+
+.form {
+
+    width: 60%;
+}
+
+.inputs {
+    width: 90%;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
+#Buttonitr {
+    display: flex;
+    justify-content: center;
+}
+
 .Button-Login {
+    width: 50%;
     border: none;
     background-color: #BF99E9;
+    border: solid 1px black;
+    padding: 10px;
+    margin: 20px;
+    transition: .2s;
+}
+
+.Button-Login:hover {
+    transform: scale(1.1);
+    color: white;
+    background-color: black;
+    border: solid 1px #BF99E9;
+    transition: .2s;
+}
+
+#solicitacao {
+    display: flex;
+    justify-content: center;
 }
 
 .solicitacoes {
@@ -29,7 +99,42 @@ h1, h3, p {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    border: solid 1px #BF99E9;
+    width: 50%;
+    padding: 10px;
+    transition: .2s;
 }
 
+.solicitacoes:hover {
+    color: black;
+    transform: scale(1.1);
+    background-color: #BF99E9;
+    border: solid 1px black;
+    transition: .2s;
+}
 
+@media (min-width: 340px) and (max-width: 1231px) {
+    #background__image {
+        display: none;
+    }
 
+    main {
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        top: 0%;
+        left: 0%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .inputs {
+        width: 50%;
+    }
+
+    span {
+        width: 53%;
+    }
+
+}

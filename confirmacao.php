@@ -17,12 +17,14 @@ include 'conexao.php';
 
 <body>
     <?php
-    session_start();
     include 'conexao.php';
 
     if (isset($_SESSION['submitted'])) {
-        echo "<script>alert('Solicitação enviada com sucesso!');</script>";
+        $alert_message = "<script>alert('Solicitação enviada com sucesso!');</script>";
         unset($_SESSION['submitted']);
+        echo $alert_message;
+        echo '<script>setTimeout(function() { window.location.href = "fale.php"; }, 300);</script>';
+        exit();
     }
 
     ?>

@@ -44,45 +44,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
+    <div id="background__image"></div>
+
     <main>
         <h1>Em que podemos ajudá-lo hoje?</h1>
-
-        <p>Preencha apenas os campos que correspondem à sua solicitação.</p>
 
         <form class="form" action="" method="POST">
 
             <div id="container__email">
-                <h3 class="E-mail">E-mail</h3>
-                <input type="email" name="email" placeholder="e-mail" required>
+                <span>E-mail:</span>
+                <input class="inputs" type="email" name="email" placeholder="e-mail" required>
             </div>
 
-            <div id="container__senha">
-                <h3 class="Password">Selecione a opção que mais se adequa a sua solicitação:</h3>
-                <select name="categoria" id="" required>
+            <div id="container__opcao">
+                <span>Selecione a opção que mais se adequa a sua solicitação:</span>
+                <select class="inputs" name="categoria" id="" required>
                     <option value="" data-default disabled selected></option>
                     <option value="1">Sugestão</option>
                     <option value="2">Avaliação</option>
                     <option value="3">Reclamação</option>
                 </select>
             </div>
-
-            <div id="container__email">
-                <h3 class="E-mail">Digite aqui a sua solicitação:</h3>
-                <input type="text" name="texto" placeholder="Digite aqui" required>
+  
+            <div id="container__texto">
+                <span>Digite aqui a sua solicitação:</span>
+                <input id="texto" class="inputs" type="text" name="texto" placeholder="Digite aqui" required>
             </div>
 
             <div id="Buttonitr">
                 <input class="Button-Login" type="submit" value="Enviar"></input>
             </div>
+
+            <div id="solicitacao">
+
+                <?php
+
+                if (isset($_SESSION['adm_id']) == true) {
+                    echo '<a class="solicitacoes" href="solicitacoes.php">Ver solicitações</a>';
+                }
+
+                ?>
+
+            </div>
+
     </main>
-
-    <?php
-
-    if (isset($_SESSION['adm_id']) == true) {
-        echo '<a class="solicitacoes" href="solicitacoes.php">Ver solicitações</a>';
-    }
-
-    ?>
 
     </form>
 </body>
