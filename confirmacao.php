@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+
+include 'conexao.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

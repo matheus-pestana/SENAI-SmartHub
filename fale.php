@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+
     <main>
         <h1>Em que podemos ajudá-lo hoje?</h1>
 
@@ -75,11 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
     </main>
 
-
     <?php
 
-    if (isset($_SESSION['adm_id']) && $_SESSION['adm_id'] == true) {
-        echo '<a href="solicitacoes.php">Ver solicitações</a>';
+    if (isset($_SESSION['adm_id']) == true) {
+        echo '<a class="solicitacoes" href="solicitacoes.php">Ver solicitações</a>';
     }
 
     ?>

@@ -4,121 +4,79 @@ body {
     font-style: normal;
     padding: 0;
     margin: 0;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 #container__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.backgroundimage {
+    width: 50vw;
     height: 100vh;
-    background-color: black;
 }
 
 #container__login {
-    height: 100vh;
+    width: 50%;
     display: flex;
     justify-content: center;
-    text-align: center;
-    margin: 0 auto;
-
+    align-items: center;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.logo {
-    width: 40%;
-    margin: 0 auto;
-}
-
-h1, h2, h3, a {
-    color: white;
-    text-decoration: none;
-}
-
-#email, #senha {
-    width: 250px;
-    height: 30px;
-    background-color: #3B3B3B;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-}
-
-.cadastro {
-    padding: 10px;
-    border: solid 1px white;
-    border-radius: 5px;
-    transition: .2s;
-}
-
-.cadastro:hover {
-    background-color: white;
-    color: black;
-    transition: .2s;
-}
-
-.Button-Login{
-    cursor: pointer;
-    background-color: #3b3b3b;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    width: 50%;
-    height: 40px;
-    transition: .2s;
-}
-
-.Button-Login:hover {
-    background-color: white;
-    color: black;
-    transition: .2s;
-
-}
-
-#background_image {
-    display: none;
-}
-
-@media screen and (min-width: 1280px) {
-    #container__content {
-        display: flex;
-    }
-
-    #container__login {
-        width: 40%;
-    }
     
-    #background_image {
-        background-image: url(../img/galaxy.gif);
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 60%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        text-align: justify;
-    }
+}
 
-    #background_image h2 {
-        width: 50%;
-        text-align: justify;
-    }
+.login_title,
+.login_text {
+    color: white;
+}
 
-    #background_image a {
-        padding: 10px;
-        border: 1px solid white;
-        border-radius: 5px;
-        font-weight:400;
-        transition: .2s;
-    }
+.login_title {
+    width: 60%;
+    font-size: 2.5em;
+    font-weight: 700;
+}
 
-    #background_image a:hover {
-        background-color: white;
-        color: black;
-        transition: .2s;
-    }
+.login_text {
+    width: 70%;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+#alts {
+    margin-bottom: 10px;
+}
+
+.index,
+.cadastro {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid #5A19A0;
+    padding: 10px;
+    margin: 10px;
+    transition: .2s
+}
+
+.index:hover,
+.cadastro:hover {
+    color: #5A19A0;
+    border-bottom: 5px solid #5A19A0;
+    transition: .2s;
+}
+
+.email_input,
+.senha_input {
+    width: 60%;
+    height: 4vh;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
 }

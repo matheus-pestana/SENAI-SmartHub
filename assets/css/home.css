@@ -29,6 +29,7 @@ body {
 
 .logo {
     width: 140px;
+    cursor: url("../img/cursor.png"), auto;
 }
 
 #navbar__itens {
@@ -42,12 +43,14 @@ body {
     padding: 30px;
     border-bottom: 3px solid transparent;
     transition: 0.3s;
+    vertical-align: center;
 }
 
 #navbar__itens a:hover {
     color: #5A19A0;
     border-bottom: 3px solid #5A19A0;
     transition: 0.3s;
+    cursor: url("../img/cursor.png"), auto;
 }
 
 #apresentacao {
@@ -179,6 +182,11 @@ body {
     transition: .2s;
 }
 
+.textos {
+    width: 80%;
+    height: 80%;
+}
+
 #desenvolvedores {
     display: flex;
     flex-direction: column;
@@ -298,4 +306,14 @@ footer p {
 
 #back-to-top:hover {
     background-color: #f0f0f0;
+}
+
+@media (min-width: 340px) and (max-width: 720px){
+    .apresentacao__img, .servicos__img, .sobre__img {
+        display: none;
+    }
+
+    .textos {
+        width: 100%;
+    }
 }

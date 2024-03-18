@@ -21,6 +21,24 @@ include 'conexao.php';
     <nav id="navbar">
         <a href="#"><img class="logo" src="assets/img/logo.png" alt=""></a>
         <div id="navbar__itens">
+            <?php
+            
+            include 'conexao.php';
+
+            if (isset($_SESSION["adm_id"])) {
+                $adm_id = $_SESSION["adm_id"];
+
+                $query = "SELECT usuario_nome FROM usuarios WHERE usuario_id = ?";
+                $stmt = $conn->prepare($query);
+                $stmt->bind_param("i", $adm_id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $user = $result->fetch_assoc();
+
+                echo "<a>Bem-vindo {$user['usuario_nome']}!</a>";
+            }
+            
+            ?>
             <a href="#servicos">Serviços</a>
             <a href="#sobre">Quem Somos</a>
             <a href="#contato">Contato</a>
@@ -30,7 +48,7 @@ include 'conexao.php';
 
     <main>
         <div id="apresentacao">
-            <div id="textos">
+            <div class="textos">
                 <p class="apresentacao__title">Um mundo de oportunidades</p>
                 <h1 class="apresentacao__texto">
                     Conectando Mentes; Transmitindo Conhecimento
@@ -41,7 +59,7 @@ include 'conexao.php';
         </div>
 
         <div id="servicos">
-            <div id="textos">
+            <div class="textos">
                 <p class="servicos__title">Serviços</p>
                 <h1 class="servicos__texto">
                     De que maneira podemos ser úteis?
@@ -52,7 +70,7 @@ include 'conexao.php';
         </div>
 
         <div id="sobre">
-            <div id="textos">
+            <div class="textos">
                 <p class="sobre__title">Quem Somos</p>
                 <h1 class="sobre__texto">
                     Conheça nossa empresa e desenvolvedores
