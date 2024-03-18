@@ -129,6 +129,10 @@ span {
         padding: 0;
     }
 
+    .form {
+        width: 100%;
+    }
+
     .inputs {
         width: 50%;
     }
