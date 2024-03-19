@@ -1,0 +1,121 @@
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    background-color: black;
+}
+
+#nav {
+    width: 95%;
+    display: flex;
+    align-items: center;
+}
+
+#back {
+    width: 20%;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: white;
+    border: solid 1px black;
+    transition: .2s;
+}
+
+a:hover {
+    background-color: black;
+    border: solid 1px #BF99E9;
+    color: white;
+    transform: scale(1.05);
+    transition: .2s;
+}
+
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.title {
+    width: 90%;
+    color: white;
+    text-align: center;
+}
+
+table {
+    border: solid 2px #BF99E9;
+    width: 95%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: white;
+}
+
+th {
+    background-color: #BF99E9;
+}
+
+td {
+    background-color: #333;
+}
+
+.email {
+    width: 40%;
+}
+
+.texto {
+    word-break: break-all;
+}
+
+main table {
+    width: 100%;
+}
+
+main th,
+main td {
+    padding: 10px;
+    text-align: center;
+}
+
+main table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+main th,
+main td {
+    padding: 10px;
+    border: 1px solid #BF99E9;
+    color: white;
+}
+
+main th {
+    background-color: #BF99E9;
+}
+
+main td {
+    background-color: #333;
+}
+
+@media (min-width: 340px) and (max-width: 600px) {
+    td {
+        word-break: break-all;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    a {
+        width: 10%;
+        font-size: .7rem;
+    }
+}

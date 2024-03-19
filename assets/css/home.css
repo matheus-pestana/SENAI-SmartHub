@@ -12,8 +12,13 @@ body {
     cursor: url("../img/cursor.png"), auto;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 10em
+}
+
 #navbar {
-    flex-shrink: 1;
     width: 85%;
     display: flex;
     justify-content: space-between;
@@ -24,11 +29,11 @@ body {
 #barra_roxa {
     width: 100%;
     border-bottom: 1px solid #5A19A0;
-    position: absolute;
+    /* position: absolute; */
 }
 
 .logo {
-    width: 140px;
+    width: 30%;
     cursor: url("../img/cursor.png"), auto;
 }
 
@@ -57,9 +62,8 @@ body {
     width: 80%;
     height: 60vh;
     display: flex;
-    justify-content: space-around;
     align-items: end;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .apresentacao__title, .apresentacao__texto, .apresentacao__descricao {
@@ -100,9 +104,8 @@ body {
     width: 80%;
     height: 60vh;
     display: flex;
-    justify-content: space-around;
     align-items: end;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .servicos__title, .servicos__texto, .servicos__descricao {
@@ -143,9 +146,8 @@ body {
     width: 80%;
     height: 60vh;
     display: flex;
-    justify-content: space-around;
     align-items: end;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .sobre__title, .sobre__texto, .sobre__descricao {
@@ -309,6 +311,20 @@ footer p {
 }
 
 @media (min-width: 340px) and (max-width: 720px){
+
+    .logo {
+        width: 20%;
+    }
+
+    #navbar__itens {
+        display: flex;
+    }
+
+    #navbar__itens a {
+        font-size: 0.8rem;
+        padding: 20px;
+    }
+
     .apresentacao__img, .servicos__img, .sobre__img {
         display: none;
     }
