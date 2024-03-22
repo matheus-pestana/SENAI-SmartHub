@@ -47,9 +47,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div id="background__image"></div>
 
     <main>
-        <h1>Em que podemos ajudá-lo hoje?</h1>
+        <div id="voltar">
+            <a href="home.php" class="previous">&laquo; Voltar</a>
+        </div>
+
+        <h1>Fale Conosco</h1>
+        <h3>Em que podemos ajudá-lo hoje?</h3>
 
         <form class="form" action="" method="POST">
+
 
             <div id="container__email">
                 <span>E-mail:</span>
@@ -65,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <option value="3">Reclamação</option>
                 </select>
             </div>
-  
+
             <div id="container__texto">
                 <span>Digite aqui a sua solicitação:</span>
                 <input id="texto" class="inputs" type="text" name="texto" placeholder="Digite aqui" required>

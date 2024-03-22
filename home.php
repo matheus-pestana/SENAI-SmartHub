@@ -6,7 +6,7 @@ include 'conexao.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -14,11 +14,11 @@ include 'conexao.php';
     <title>SmartHub - Home</title>
     <link rel="icon" href="assets/img/icon.png">
     <link rel="stylesheet" href="assets/css/home.css">
-    <link href="assets/js/hamburguer.js">
+    <script src="assets/js/hamburguer.js"></script>
 </head>
 
 <body>
-    
+
     <nav id="navbar">
         <a href="#"><img class="logo" src="assets/img/logo.png" alt=""></a>
         <div id="navbar__itens">
@@ -36,23 +36,55 @@ include 'conexao.php';
                 $result = $stmt->get_result();
                 $user = $result->fetch_assoc();
 
-                echo "<a>Bem-vindo {$user['usuario_nome']}!</a>";
+                echo "<a class='nav__link'>Bem-vindo {$user['usuario_nome']}!</a>";
             }
 
             ?>
-            <a href="#servicos">Serviços</a>
-            <a href="#sobre">Quem Somos</a>
-            <a href="#contato">Contato</a>
+            <a class="nav__link" href="#servicos">Serviços</a>
+            <a class="nav__link" href="#sobre">Quem Somos</a>
+            <a class="nav__link" href="#contato">Contato</a>
         </div>
+        <button class="hamburguer">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div id="sidebar">
+            <a class="sidebar__link" href="#servicos">Serviços</a>
+            <a class="sidebar__link" href="#sobre">Quem Somos</a>
+            <a class="sidebar__link" href="#contato">Contato</a>
+        </div>
+
     </nav>
+
     <div id="barra_roxa"></div>
+
+    <?php
+
+    include 'conexao.php';
+
+    if (isset($_SESSION["adm_id"])) {
+        $adm_id = $_SESSION["adm_id"];
+
+        $query = "SELECT usuario_nome FROM usuarios WHERE usuario_id = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $adm_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+
+        echo "<a class='welcome'>Bem-vindo {$user['usuario_nome']}!</a>";
+    }
+
+    ?>
 
     <main>
         <div id="apresentacao">
             <div class="textos">
                 <p class="apresentacao__title">Um mundo de oportunidades</p>
                 <h1 class="apresentacao__texto">
-                    Conectando Mentes; Transmitindo Conhecimento
+                    Conectando mentes; Transmitindo conhecimento
                 </h1>
                 <p class="apresentacao__descricao">Encontre o melhor método de estudos para você. Venha interagir no divertido mundo da educação, conosco!</p>
             </div>
@@ -76,7 +108,7 @@ include 'conexao.php';
                 <h1 class="sobre__texto">
                     Conheça nossa empresa e desenvolvedores
                 </h1>
-                <p class="sobre__descricao">A Quasar é uma empresa de desenvolvimento de soluções web e mobile, que visa desenvolver produtos capazes de agregar valor à sociedade. Sempbre buscando a excelência e maestria no que faz.</p>
+                <p class="sobre__descricao">A Quasar é uma empresa de desenvolvimento de soluções web e mobile, que visa desenvolver produtos capazes de agregar valor à sociedade. Sempre buscando a excelência e maestria no que faz.</p>
             </div>
             <img class="sobre__img" src="assets/img/quasar.png" alt="">
         </div>
@@ -109,7 +141,7 @@ include 'conexao.php';
             <div id="fale">
                 <p class="contato__title">Contato</p>
                 <h1 class="contato__texto">
-                    Caso necessário, nos consulte
+                    Precisa de suporte?
                 </h1>
                 <p class="contato__descricao">Precisa deixar uma sugestão, tirar uma dúvida ou reportar algum problema no streaming? Então não hesite em nos consultar.</p>
             </div>

@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -15,7 +16,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    gap: 10em
+    gap: 5rem
 }
 
 #navbar {
@@ -29,12 +30,73 @@ main {
 #barra_roxa {
     width: 100%;
     border-bottom: 1px solid #5A19A0;
-    /* position: absolute; */
+}
+
+.welcome {
+    display: none;
+    justify-content: center;
+    border: solid 1px #5A19A0;
+    padding: 10px;
+    font-size: 1.1rem;
 }
 
 .logo {
     width: 30%;
     cursor: url("../img/cursor.png"), auto;
+}
+
+.hamburguer {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.hamburguer span {
+    width: 1.8rem;
+    height: 0.2rem;
+    background: #BF99E9;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 250px;
+    height: 100%;
+    background-color: black;
+    border-right: solid 3px #BF99E9;
+    transition: left 0.3s ease;
+}
+
+.nav__link {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.sidebar__link {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    border-bottom: solid 1px #BF99E9;
+    text-decoration: none;
+}
+
+.sidebar-open {
+    left: 0;
 }
 
 #navbar__itens {
@@ -88,7 +150,7 @@ main {
 
 .apresentacao__descricao {
     text-align: justify;
-    width: 55%;
+    width: 60%;
     line-height: 1.5rem;
 }
 
@@ -132,7 +194,7 @@ main {
 
 .servicos__descricao {
     text-align: justify;
-    width: 40%;
+    width: 60%;
     line-height: 1.5rem;
 }
 
@@ -176,7 +238,7 @@ main {
 
 .sobre__descricao {
     text-align: justify;
-    width: 40%;
+    width: 60%;
     line-height: 1.5rem;
 }
 
@@ -198,6 +260,7 @@ main {
 #desenvolvedores {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 }
 
 #desenvolvedores ul {
@@ -235,13 +298,16 @@ main {
 
 #contato {
     background-color: #272727;
-    width: 100%;
+    width: 100vw;
     height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: auto;
+}
+
+#fale {
+    margin: 20px;
 }
 
 .contato__title,
@@ -301,10 +367,54 @@ footer p {
     color: white;
 }
 
-@media (min-width: 340px) and (max-width: 720px) {
+@media (min-width: 721px) and (max-width: 1024px) {
+
+    .welcome {
+        display: flex;
+        color: white;
+    }
 
     .logo {
-        width: 20%;
+        width: 100px;
+    }
+
+    .nav__link {
+        font-size: 80%;
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 340px) and (max-width: 720px) {
+
+    main {
+        gap: 0rem
+    }
+
+    .welcome {
+        display: flex;
+        color: white;
+    }
+
+    .hamburguer {
+        display: flex;
+    }
+
+    .nav__link {
+        display: none;
+    }
+
+    .sidebar__link.active {
+        display: flex;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .apresentacao__img,
+    .servicos__img,
+    .sobre__img {
+        display: none;
     }
 
     #navbar__itens {
@@ -316,13 +426,62 @@ footer p {
         padding: 20px;
     }
 
-    .apresentacao__img,
-    .servicos__img,
-    .sobre__img {
+    .main__link {
         display: none;
     }
 
     .textos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: 100%;
+        text-align: center;
+    }
+
+    .apresentacao__texto,
+    .servicos__texto,
+    .sobre__texto,
+    .contato__texto {
+        width: 100%;
+        font-size: 100%;
+    }
+
+    .apresentacao__title,
+    .servicos__title,
+    .sobre__title,
+    .contato__title {
+        width: 50%;
+    }
+
+    #desenvolvedores ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    #desenvolvedores ul li {
+        margin: 10px;
+    }
+
+    .desenvolvedores__img {
+        width: 40%;
+    }
+
+    .desenvolvedores__nome {
+        font-size: 1rem;
+    }
+
+    .desenvolvedor__funcao {
+        font-size: .8rem;
+    }
+
+    #fale {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 }
