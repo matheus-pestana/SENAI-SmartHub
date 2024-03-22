@@ -66,7 +66,9 @@ main {
     margin: 0 auto;
 }
 
-.apresentacao__title, .apresentacao__texto, .apresentacao__descricao {
+.apresentacao__title,
+.apresentacao__texto,
+.apresentacao__descricao {
     color: white;
 }
 
@@ -108,7 +110,9 @@ main {
     margin: 0 auto;
 }
 
-.servicos__title, .servicos__texto, .servicos__descricao {
+.servicos__title,
+.servicos__texto,
+.servicos__descricao {
     color: white;
 }
 
@@ -150,7 +154,9 @@ main {
     margin: 0 auto;
 }
 
-.sobre__title, .sobre__texto, .sobre__descricao {
+.sobre__title,
+.sobre__texto,
+.sobre__descricao {
     color: white;
 }
 
@@ -238,7 +244,9 @@ main {
     margin: auto;
 }
 
-.contato__title, .contato__texto, .contato__descricao {
+.contato__title,
+.contato__texto,
+.contato__descricao {
     color: white;
 }
 
@@ -293,24 +301,7 @@ footer p {
     color: white;
 }
 
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none;
-    background-color: #fff;
-    color: #000;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#back-to-top:hover {
-    background-color: #f0f0f0;
-}
-
-@media (min-width: 340px) and (max-width: 720px){
+@media (min-width: 340px) and (max-width: 720px) {
 
     .logo {
         width: 20%;
@@ -325,7 +316,9 @@ footer p {
         padding: 20px;
     }
 
-    .apresentacao__img, .servicos__img, .sobre__img {
+    .apresentacao__img,
+    .servicos__img,
+    .sobre__img {
         display: none;
     }
 

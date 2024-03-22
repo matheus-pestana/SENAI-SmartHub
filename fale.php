@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div id="container__opcao">
                 <span>Selecione a opção que mais se adequa a sua solicitação:</span>
-                <select class="inputs" name="categoria" id="" required>
+                <select class="inputs" name="categoria" required>
                     <option value="" data-default disabled selected></option>
                     <option value="1">Sugestão</option>
                     <option value="2">Avaliação</option>

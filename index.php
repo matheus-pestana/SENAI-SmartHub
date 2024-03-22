@@ -2,11 +2,6 @@
 session_start();
 include 'conexao.php';
 
-if (isset($_SESSION['adm_id'])) {
-    header('Location: home.php');
-    exit();
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['senha'];
@@ -77,13 +72,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div id="inputs">
-                    <input type="email" class="email_input" id="email" name="email" placeholder="Email" required>
-                    <input type="password" class="senha_input" id="senha" name="senha" placeholder="Senha" required>
+                    <input type="email" class="inputs" id="email" name="email" placeholder="Email" required>
+                    <input type="password" class="inputs" id="senha" name="senha" placeholder="Senha" required>
                 </div>
 
-                <div id="Buttonitr">
-                    <input class="Button-Login" type="submit" value="Login"></input>
-                    <a href="redefinir.php">Esqueceu a senha?</a>
+                <div id="links">
+                    <input class="login_btn" type="submit" value="Login"></input>
+                    <a class="esqueceu" href="redefine.php">Esqueceu a senha?</a>
                 </div>
 
             </form>

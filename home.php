@@ -14,15 +14,16 @@ include 'conexao.php';
     <title>SmartHub - Home</title>
     <link rel="icon" href="assets/img/icon.png">
     <link rel="stylesheet" href="assets/css/home.css">
-    <link href="assets/js/scroll.js">
+    <link href="assets/js/hamburguer.js">
 </head>
 
 <body>
+    
     <nav id="navbar">
         <a href="#"><img class="logo" src="assets/img/logo.png" alt=""></a>
         <div id="navbar__itens">
             <?php
-            
+
             include 'conexao.php';
 
             if (isset($_SESSION["adm_id"])) {
@@ -37,7 +38,7 @@ include 'conexao.php';
 
                 echo "<a>Bem-vindo {$user['usuario_nome']}!</a>";
             }
-            
+
             ?>
             <a href="#servicos">Serviços</a>
             <a href="#sobre">Quem Somos</a>
