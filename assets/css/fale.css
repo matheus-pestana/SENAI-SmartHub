@@ -37,6 +37,7 @@ main {
     align-items: start;
 }
 
+
 .previous {
     border-radius: 10px;
     text-decoration: none;
@@ -53,6 +54,11 @@ main {
     color: white;
     transform: scale(1.05);
     transition: .2s;
+}
+
+.adm {
+    color: white;
+    font-size: 0.5rem;
 }
 
 

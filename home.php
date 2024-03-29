@@ -36,13 +36,22 @@ include 'conexao.php';
                 $result = $stmt->get_result();
                 $user = $result->fetch_assoc();
 
-                echo "<a class='nav__link'>Bem-vindo {$user['usuario_nome']}!</a>";
+                echo "<a class='nav__link nome'>Logado como: {$user['usuario_nome']}!</a>";
             }
 
             ?>
             <a class="nav__link" href="#servicos">Serviços</a>
             <a class="nav__link" href="#sobre">Quem Somos</a>
             <a class="nav__link" href="#contato">Contato</a>
+            <a class="nav__link" href="index.php">Login</a>
+            <?php
+            include 'conexao.php';
+
+            if (isset($_SESSION["adm_id"])) {
+                echo "<a class='nav__link' href='logout.php'>Logout</a>";
+            }
+            
+            ?>
         </div>
         <button class="hamburguer">
             <span></span>
@@ -51,6 +60,9 @@ include 'conexao.php';
         </button>
 
         <div id="sidebar">
+            <button class="fechar" onclick="toggleMenu()">
+                <img class="close" src="assets/img/close.png" alt="">
+            </button>
             <a class="sidebar__link" href="#servicos">Serviços</a>
             <a class="sidebar__link" href="#sobre">Quem Somos</a>
             <a class="sidebar__link" href="#contato">Contato</a>
@@ -74,12 +86,32 @@ include 'conexao.php';
         $result = $stmt->get_result();
         $user = $result->fetch_assoc();
 
-        echo "<a class='welcome'>Bem-vindo {$user['usuario_nome']}!</a>";
+        echo "<a class='welcome'> Logado como administrador: {$user['usuario_nome']}</a>";
     }
 
     ?>
 
     <main>
+
+        <?php
+
+        include 'conexao.php';
+
+        if (isset($_SESSION["adm_id"])) {
+            $adm_id = $_SESSION["adm_id"];
+
+            $query = "SELECT usuario_nome FROM usuarios WHERE usuario_id = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("i", $adm_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $user = $result->fetch_assoc();
+
+            echo "<h2 class='adm'>Você está logado como administrador</h2>";
+        }
+
+        ?>
+
         <div id="apresentacao">
             <div class="textos">
                 <p class="apresentacao__title">Um mundo de oportunidades</p>
