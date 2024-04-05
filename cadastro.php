@@ -38,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" href="assets/img/icon.png">
     <link rel="stylesheet" href="assets/css/cadastro.css">
     <script src="assets/js/senha.js"></script>
+    <script src="assets/js/validaEmail.js"></script>
 </head>
 
 <body>
@@ -49,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <img src="assets/img/logo.png" class="logo">
 
-            <form class="form" action="" method="POST">
+            <form name="f1" class="form" action="" method="POST" onsubmit="return validacaoEmail(f1.email)">
 
                 <div id="container__nome">
                     <span class="nome">Nome</span>
@@ -63,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div id="container__senha">
                     <span class="Password">Senha</span>
-                    <input type="password" class="inputs" id="senha" name="senha" placeholder="senha" required>
+                    <input type="password" class="inputs" id="senha" name="senha" placeholder="senha" minlength="8" required>
                 </div>
 
 

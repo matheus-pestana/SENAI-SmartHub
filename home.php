@@ -15,6 +15,8 @@ include 'conexao.php';
     <link rel="icon" href="assets/img/icon.png">
     <link rel="stylesheet" href="assets/css/home.css">
     <script src="assets/js/hamburguer.js"></script>
+    <script src="assets/js/sair.js"></script>
+    <script src="assets/js/backToTop.js"></script>
 </head>
 
 <body>
@@ -43,14 +45,17 @@ include 'conexao.php';
             <a class="nav__link" href="#servicos">Serviços</a>
             <a class="nav__link" href="#sobre">Quem Somos</a>
             <a class="nav__link" href="#contato">Contato</a>
-            <a class="nav__link" href="index.php">Login</a>
             <?php
             include 'conexao.php';
 
-            if (isset($_SESSION["adm_id"])) {
-                echo "<a class='nav__link' href='logout.php'>Logout</a>";
+            if (!isset($_SESSION["adm_id"])) {
+                echo "<a class='nav__link login' href='index.php'>Entrar</a>";
             }
-            
+
+            if (isset($_SESSION["adm_id"])) {
+                echo "<button class='nav__link btn' onclick='confirmLogout()'>Logout</button>";
+            }
+
             ?>
         </div>
         <button class="hamburguer">
@@ -179,7 +184,10 @@ include 'conexao.php';
             </div>
             <a class="botao__fale" href="fale.php">Fale Conosco!</a>
         </div>
+
     </main>
+
+    <button onclick="topFunction()" id="btnTopo" title="Voltar ao topo">&#8593</button>
 
     <footer>
         <p>Desenvolvido por Quasar© 2024</p>

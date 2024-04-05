@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div id="inputs">
                     <input type="email" class="inputs" id="email" name="email" placeholder="Email" required>
-                    <input type="password" class="inputs" id="senha" name="senha" placeholder="Senha" required>
+                    <input type="password" class="inputs" id="senha" name="senha" placeholder="Senha" minlength="8" required>
                 </div>
 
                 <div id="links">

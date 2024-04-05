@@ -70,12 +70,14 @@ main {
 
 h1 {
     color: white;
+    margin: 0;
 }
 
 h3 {
     font-size: 1rem;
     text-align: left;
     color: white;
+    margin: 0;
 }
 
 span {
@@ -83,10 +85,6 @@ span {
     text-align: left;
     padding: 20px;
     color: white;
-}
-
-.form {
-    width: 60%;
 }
 
 .inputs {
