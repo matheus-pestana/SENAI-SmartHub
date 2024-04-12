@@ -17,6 +17,7 @@ include 'conexao.php';
     <script src="assets/js/hamburguer.js"></script>
     <script src="assets/js/sair.js"></script>
     <script src="assets/js/backToTop.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -182,7 +183,9 @@ include 'conexao.php';
                 </h1>
                 <p class="contato__descricao">Precisa deixar uma sugestão, tirar uma dúvida ou reportar algum problema no streaming? Então não hesite em nos consultar.</p>
             </div>
-            <a class="botao__fale" href="fale.php">Fale Conosco!</a>
+            <div class="fale_btn">
+                <a class="botao__fale" href="fale.php">Fale Conosco!</a>
+            </div>
         </div>
 
     </main>

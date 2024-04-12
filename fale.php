@@ -47,10 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div id="background__image"></div>
 
     <main>
-        <div id="voltar">
-            <a href="home.php" class="previous">&laquo; Voltar</a>
-        </div>
-    
+
         <h1>Fale Conosco</h1>
         <h3>Em que podemos ajudá-lo hoje?</h3>
 
@@ -90,6 +87,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
 
                 ?>
+
+                <a draggable="true" href="home.php" class="previous">Voltar</a>
 
             </div>
 

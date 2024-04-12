@@ -330,15 +330,14 @@ main {
 
 #contato {
     background-color: #272727;
-    width: 100vw;
     height: 60vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
 #fale {
+    width: 50vw;
     margin: 20px;
 }
 
@@ -346,6 +345,12 @@ main {
 .contato__texto,
 .contato__descricao {
     color: white;
+}
+
+.fale_btn {
+    display: flex;
+    justify-content: center;
+    width: 30vw;
 }
 
 .contato__title {
@@ -370,12 +375,13 @@ main {
 
 .botao__fale {
     text-decoration: none;
-    padding: 15px;
+    padding: 20px;
     color: black;
-    border-radius: 10px;
+    border-radius: 20px;
     font-weight: bold;
     background-color: #BF99E9;
     transition: .2s;
+    font-size: 1.5rem;
 }
 
 .botao__fale:hover {
@@ -572,11 +578,22 @@ footer p {
         font-size: .8rem;
     }
 
+    #contato {
+        height: 75vh;
+        flex-direction: column;
+    }
+
     #fale {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+
+    .botao__fale {
+        white-space: nowrap;
+        font-size: 1rem;
+        padding: 10px;
     }
 
     #btnTopo {

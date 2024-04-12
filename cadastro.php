@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt) {
         mysqli_stmt_bind_param($stmt, "sss", $nome, $email, $hashed_password);
         if (mysqli_stmt_execute($stmt)) {
-            echo "<script>alert('Usuário Cadastrado com Sucesso.'); window.location.href = 'index.php';</script>";
+            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'>window.location.href = 'home.php'</script>";
         } else {
             echo "<script>alert('Erro ao cadastrar usuário.');</script>";
         }

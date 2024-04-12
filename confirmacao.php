@@ -12,6 +12,9 @@ include 'conexao.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
     <title>Confirmação</title>
 </head>
 
@@ -20,10 +23,19 @@ include 'conexao.php';
     include 'conexao.php';
 
     if (isset($_SESSION['submitted'])) {
-        $alert_message = "<script>alert('Solicitação enviada com sucesso!');</script>";
+        echo "<script>
+       swal({
+        title: 'Solicitação enviada com sucesso',
+        text: 'Retornando para Fale Conosco',
+        icon: 'succes',
+        buttons: true,
+        .then(() => {
+            if (willLogout) {
+              window.location.href = 'logout.php';
+            }
+       })
+        </script>";
         unset($_SESSION['submitted']);
-        echo $alert_message;
-        echo '<script>setTimeout(function() { window.location.href = "fale.php"; }, 300);</script>';
         exit();
     }
 
