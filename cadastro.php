@@ -6,27 +6,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['senha'];
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $sql_check = "SELECT usuario_id FROM usuarios WHERE usuario_email = ?";
+    $stmt_check = mysqli_prepare($conn, $sql_check);
 
-    $sql = "INSERT INTO usuarios (usuario_nome, usuario_email, usuario_senha) VALUES (?, ?, ?)";
+    if ($stmt_check) {
+        mysqli_stmt_bind_param($stmt_check, "s", $email);
+        mysqli_stmt_execute($stmt_check);
+        mysqli_stmt_store_result($stmt_check);
 
-    $stmt = mysqli_prepare($conn, $sql);
-
-    if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "sss", $nome, $email, $hashed_password);
-        if (mysqli_stmt_execute($stmt)) {
-            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'>window.location.href = 'home.php'</script>";
+        if (mysqli_stmt_num_rows($stmt_check) > 0) {
+            echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+            echo "<script>swal('Erro', 'O email já está registrado.', 'error');</script>";
         } else {
-            echo "<script>alert('Erro ao cadastrar usuário.');</script>";
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO usuarios (usuario_nome, usuario_email, usuario_senha) VALUES (?, ?, ?)";
+
+            $stmt = mysqli_prepare($conn, $sql);
+
+            if ($stmt) {
+                mysqli_stmt_bind_param($stmt, "sss", $nome, $email, $hashed_password);
+                if (mysqli_stmt_execute($stmt)) {
+                    echo "<script>window.location.href = 'index.php'</script>";
+                } else {
+                    echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+                    echo "<script>swal('Erro', 'Erro ao inserir usuário no banco de dados.', 'error');</script>";
+                }
+                mysqli_stmt_close($stmt);
+            } else {
+                echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+                echo "<script>swal('Erro', 'Erro na preparação da consulta: " . mysqli_error($conn) . "', 'error');</script>";
+            }
         }
-        mysqli_stmt_close($stmt);
+        mysqli_stmt_close($stmt_check);
     } else {
-        echo "<script>alert('Erro na preparação da consulta.');</script>";
+        echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+        echo "<script>swal('Erro', 'Erro na preparação da consulta: " . mysqli_error($conn) . "', 'error');</script>";
     }
 
     mysqli_close($conn);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="assets/css/cadastro.css">
     <script src="assets/js/senha.js"></script>
     <script src="assets/js/validaEmail.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -74,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div id="cadastrobtn">
-                    <input type="submit" class="cadastro_btn" value="Cadastrar-se">
+                    <input onclick="validacaoEmail(field)" type="submit" class="cadastro_btn" value="Cadastrar-se">
                 </div>
 
             </form>

@@ -23,21 +23,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     header('Location: home.php');
                     exit();
                 } else {
-                    echo "<script>alert('Dados incorretos, tente novamente.'); window.location.href = 'index.php';</script>";
+                    echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+                    echo "<script>swal('Erro', 'As credenciais fornecidas estão incorretas. Por favor, tente novamente.', 'error');</script>";
                 }
             } else {
+                echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+                echo "<script>swal('Erro', 'Nenhum usuário encontrado com esse email.', 'error');</script>";
             }
         } else {
+            echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+            echo "<script>swal('Erro', 'Erro na execução da consulta.', 'error');</script>";
         }
 
         mysqli_stmt_close($stmt);
     } else {
-        echo "Erro na preparação da consulta: " . mysqli_error($conn);
+        echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
+        echo "<script>swal('Erro', 'Erro na preparação da consulta: " . mysqli_error($conn) . "', 'error');</script>";
     }
 
     mysqli_close($conn);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,8 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div id="container__login">
             <form class="form" action="" method="POST">
-                    <h1 class="login_title">Faça login em sua conta</h1>
-                    <p class="login_text">Acesse sua conta informando seu e-mail e senha</p>
+                <h1 class="login_title">Entre na sua conta</h1>
+                <p class="login_text">Acesse sua conta informando seu e-mail e senha</p>
 
                 <div id="alts">
                     <a href="index.php" class="index">Login</a>
@@ -85,10 +92,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
     </div>
-
-    <footer>
-
-    </footer>
 </body>
 
 </html>

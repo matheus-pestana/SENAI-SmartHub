@@ -54,7 +54,7 @@ include 'conexao.php';
             }
 
             if (isset($_SESSION["adm_id"])) {
-                echo "<button class='nav__link btn' onclick='confirmLogout()'>Logout</button>";
+                echo "<button class='nav__link btn' onclick='confirmLogout()'>Sair</button>";
             }
 
             ?>
