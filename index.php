@@ -2,7 +2,7 @@
 session_start();
 include 'conexao.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['senha'];
 
@@ -24,25 +24,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     exit();
                 } else {
                     echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
-                    echo "<script>swal('Erro', 'As credenciais fornecidas estão incorretas. Por favor, tente novamente.', 'error');</script>";
+                    echo "<script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                swal('Erro', 'As credenciais fornecidas estão incorretas. Por favor, tente novamente.', 'error');
+                            });
+                          </script>";
                 }
             } else {
                 echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
-                echo "<script>swal('Erro', 'Nenhum usuário encontrado com esse email.', 'error');</script>";
+                echo "<script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            swal('Erro', 'Nenhum usuário encontrado com esse email.', 'error')
+                            });
+                    </script>";
             }
-        } else {
-            echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
-            echo "<script>swal('Erro', 'Erro na execução da consulta.', 'error');</script>";
         }
-
-        mysqli_stmt_close($stmt);
     } else {
         echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
-        echo "<script>swal('Erro', 'Erro na preparação da consulta: " . mysqli_error($conn) . "', 'error');</script>";
+        echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    swal('Erro', 'Erro na execução da consulta.', 'error')
+                });
+                </script>";
     }
 
-    mysqli_close($conn);
+    mysqli_stmt_close($stmt);
 }
+
+mysqli_close($conn);
 ?>
 
 

@@ -20,12 +20,23 @@ include 'conexao.php';
     include 'conexao.php';
 
     if (isset($_SESSION['submitted'])) {
-        $alert_message = "<script>alert('Senha atualizada com sucesso!');</script>";
+        echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                swal({
+                    title: 'Sucesso!',
+                    text: 'Senha atualizada com sucesso!',
+                    icon: 'success',
+                    button: 'Ok',
+                }).then(() => {
+                    window.location.href = 'redefine.php';
+                });
+            });
+        </script>";
         unset($_SESSION['submitted']);
-        echo $alert_message;
-        echo '<script>setTimeout(function() { window.location.href = "redefine.php"; }, 300);</script>';
         exit();
     }
+    
 
     ?>
 

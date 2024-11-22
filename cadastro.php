@@ -16,7 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (mysqli_stmt_num_rows($stmt_check) > 0) {
             echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
-            echo "<script>swal('Erro', 'O email já está registrado.', 'error');</script>";
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    swal('Erro', 'O email já está registrado.', 'error')
+                });
+                </script>";
         } else {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO usuarios (usuario_nome, usuario_email, usuario_senha) VALUES (?, ?, ?)";
@@ -29,18 +33,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     echo "<script>window.location.href = 'index.php'</script>";
                 } else {
                     echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
-                    echo "<script>swal('Erro', 'Erro ao inserir usuário no banco de dados.', 'error');</script>";
+                    echo "<script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            swal('Erro', 'Erro ao inserir usuário no banco de dados.', 'error')
+                        });
+                    </script>";
                 }
                 mysqli_stmt_close($stmt);
             } else {
                 echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
-                echo "<script>swal('Erro', 'Erro na preparação da consulta: " . mysqli_error($conn) . "', 'error');</script>";
+                echo "<script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        swal('Erro', 'Erro na preparação da consulta: " . mysqli_error($conn) . "', 'error');
+                    });
+                    </script>";
             }
         }
         mysqli_stmt_close($stmt_check);
     } else {
         echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>";
-        echo "<script>swal('Erro', 'Erro na preparação da consulta: " . mysqli_error($conn) . "', 'error');</script>";
+        echo "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                swal('Erro', 'Erro na preparação da consulta: " . mysqli_error($conn) . "', 'error');
+            });
+            </script>";
     }
 
     mysqli_close($conn);

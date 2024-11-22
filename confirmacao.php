@@ -25,8 +25,22 @@ include 'conexao.php';
     if (isset($_SESSION['submitted'])) {
         echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>;
         <script>
-        alert('teste')
-        window.location.href='fale.php';
+        document.addEventListener('DOMContentLoaded', function() {
+            swal({
+                title: 'Sucesso!',
+                text: 'Solicitação enviada com sucesso.',
+                icon: 'success', // Ícone de sucesso
+                button: 'Ok',
+                content: {
+                    element: 'div',
+                    attributes: {
+                        style: 'font-family: Arial, sans-serif; font-size: 16px;'
+                    }
+                },
+            }).then(() => {
+                window.location.href = 'fale.php';
+            });
+        });
         </script>";
         unset($_SESSION['submitted']);
         exit();
